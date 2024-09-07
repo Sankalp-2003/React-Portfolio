@@ -1,0 +1,51 @@
+@import '../../app.scss';
+
+.navbar{
+  height: 100px;
+
+  .wrapper{
+    max-width: 1366px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    @include mobile{
+      justify-content: flex-end;
+      padding: 20px;
+    }
+
+
+    h2{
+      padding-left: 40vw;
+      text-decoration: underline;
+      display: none;
+    }
+    h2:hover {
+      filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+      color: #fff;
+      transition: filter 0.3s ease, color 0.3s ease; 
+    }
+  }
+  span{
+    font-weight: bold;
+
+    @include mobile{
+      display: none;
+    }
+  }
+  .social{
+    display: flex;
+    gap: 20px;
+    font-size: 2vw;
+    @include mobile{
+      font-size: 6vw;
+    }
+  }
+  .social a:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.8));
+    color: #fff;
+    transition: filter 0.3s ease, color 0.3s ease; 
+  }
+}

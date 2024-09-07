@@ -1,0 +1,27 @@
+.eyeBall{
+  height: 40px;
+  width: 60px;
+  background: lightgoldenrodyellow;
+  border-radius: 50%;
+  position: relative;
+  .bigBall{
+    height: 30px;
+    width: 30px;
+    background-color: rgb(49, 16, 16);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .smallBall{
+      height: 10px;
+      width: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+
+    }
+  }
+}

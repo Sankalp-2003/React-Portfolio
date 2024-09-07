@@ -1,0 +1,129 @@
+@import '../../app.scss';
+
+.contact{
+  height: 100%;
+  max-width: 1366px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  @include mobile{
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .textContainer{
+    flex: 0.5;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    @include mobile{
+      gap: 20px;
+      text-align: center;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    h1{
+      font-size: 100px;
+      line-height: 80px;
+
+      @include mobile{
+      font-size: 36px;
+      }
+
+    }
+    span{
+      font-weight: 100;
+      display: inline-block;
+      margin-top: .5vw;
+      @include mobile{
+      margin: 10px 0;
+      }
+
+      a{
+        font-size: 24px;
+        @include mobile{
+          font-size: 18px;
+        }
+        
+      }
+      .no{
+        font-size: 24px;
+      }
+    }
+  }
+  .formContainer{
+    flex: 1;
+    position: relative;
+    @include mobile{
+     width: 100%; 
+     padding: 50px;
+    }
+
+    .phoneSvg{
+      stroke: orange;
+      position: absolute;
+      margin: auto;
+      z-index: 2;
+      @include mobile{
+        left: 10px;
+      }
+      svg{
+
+        @include mobile{
+          height: 370px;
+          width: 370px;
+        }
+      }
+    }
+    form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+
+    input,textarea{
+      padding: 20px;
+      background-color: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      border-radius: 5px;
+      @include mobile{
+      padding: 10px;
+      }
+    }
+    button{
+      padding: 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: orange;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 20px;
+    }
+    .msg{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2vw;
+      @include mobile{
+      font-size: 24px;
+      }
+    }
+    .msg-s{
+      color: green;
+      
+    }
+    .msg-e{
+      color: red;
+    }
+  }
+  }
+}

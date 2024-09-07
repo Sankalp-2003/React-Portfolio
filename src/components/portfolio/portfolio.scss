@@ -1,0 +1,176 @@
+@import '../../app.scss';
+
+.portfolio{
+  position: relative;
+
+  .progress{
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding-top: 50px;
+    text-align: center;
+    color: orange;
+    font-size: 36px;
+    @include mobile{
+      font-size: 22px;
+      padding: 10px;
+      text-align: right;
+    }
+  }
+
+  .progressBar{
+    height: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    @include mobile{
+      margin-top: 10px;
+    }
+  }
+
+  .container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .wrapper{
+      max-width: 1366px;
+      height: 100%;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 50px;
+      @include mobile{
+      flex-direction: column;
+      gap: 20px;
+      }
+    }
+    .imgContainer{
+      flex: 1;
+      position: relative;
+      height: 50%;
+      border: 5px solid #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      cursor: pointer;
+      @include mobile{
+      width: 100%;
+      margin-top: 100px;
+      max-height: 300px;
+
+      }
+      h1{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: orange;
+        font-weight: 900;
+        font-size: 90px;
+        text-wrap: nowrap;
+        overflow: hidden;
+        @include mobile{
+          font-size: 75px;
+        }
+
+        span{
+          display: inline-block;
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+          transition: filter 0.3s ease, color 0.3s ease; 
+        }
+      }
+
+    
+    img{
+      width: 100%;
+      height: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+      @include mobile{
+      object-fit: contain;
+      }
+
+    }
+  }
+  .imgContainer:hover{
+    filter: drop-shadow(0 0 50px orange);
+          transition: filter 0.3s ease, color 0.3s ease; 
+  }
+    .textContainer{
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      @include mobile{
+        transform: none !important;
+        padding: 10px;
+        align-items: center;
+      }
+      .links{
+        height: 60px;
+        width: 230px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .demo{
+
+          button{
+            transition: all 0.5s ease;
+          }
+          button:hover{
+            color: #fff;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+          color: #fff;
+          transition: filter 0.3s ease, color 0.3s ease; 
+          }
+        }
+        .git{
+          margin-top: 0.7vw;
+          font-size: 40px;
+          @include mobile{
+            margin-top: 15px;
+          }
+        }
+
+        .git:hover {
+          filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+          color: #fff;
+          transition: filter 0.3s ease, color 0.3s ease; 
+        }
+      }
+    }
+    h2{
+      margin-top: 5vw;
+      font-size: 54px;
+      @include mobile{
+      font-size: 32px;
+      text-align: center;
+      }
+    }
+    p{
+      color: gray;
+      font-size: 20px;
+      font-weight: 600;
+      // text-align: center;
+      @include mobile{
+        height: 33vh;
+        font-size: 16px;
+        overflow: hidden;
+      }
+    }
+    button{
+      background-color: orange;
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      width: 150px;
+      font-size: 24px;
+
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../app.scss';
+
+.message{
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  position: fixed;
+  top: 5.5vw;
+  left: 12.5vw;
+  color: #fff;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+  min-width: 50px;
+  transform: translate(-50%);
+  @include mobile{
+    display: none;
+  }
+
+  p{
+    margin: 10px;
+  }
+}

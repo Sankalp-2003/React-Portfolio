@@ -1,0 +1,17 @@
+@import '../../app.scss';
+
+.face{
+  height: 100px;
+  width: 200px;
+  position: fixed;
+  z-index: 999;
+  left: 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  @include mobile{
+    display: none;
+  }
+}
