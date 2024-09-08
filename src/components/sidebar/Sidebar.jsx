@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ToggleButton from "./toggleButton/ToggleButton";
 import Links from "./links/Links";
 import "./sidebar.scss";
@@ -24,11 +24,26 @@ const variants = {
 function sidebar({ handleMsg }) {
   const [open, setOpen] = useState(false);
 
+  const sidebarRef = useRef(null);
+  const handleClickOutside = (event) => {
+    if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+      setOpen(false);
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <motion.div
       onMouseEnter={() => handleMsg(true, "Click it")}
       onMouseLeave={() => handleMsg(false, "")}
       className="sidebar"
+      ref={sidebarRef}
       animate={open ? "open" : "closed"}
     >
       <motion.div className="bg" variants={variants}>

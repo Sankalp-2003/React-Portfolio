@@ -2,6 +2,7 @@
 
 .navbar{
   height: 100px;
+  
 
   .wrapper{
     max-width: 1366px;
@@ -39,8 +40,13 @@
     display: flex;
     gap: 20px;
     font-size: 2vw;
+    @include tab{
+      font-size: 35px;
+      margin-right: 20px;
+    }
     @include mobile{
-      font-size: 6vw;
+      font-size: 30px;
+      margin-right: unset;
     }
   }
   .social a:hover {

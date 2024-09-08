@@ -16,6 +16,13 @@
       padding: 10px;
       text-align: right;
     }
+    h1{
+
+      @include mobile{
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+    }
   }
 
   .progressBar{
@@ -44,6 +51,7 @@
       justify-content: center;
       gap: 50px;
       @include mobile{
+        position: relative;
       flex-direction: column;
       gap: 20px;
       }
@@ -57,9 +65,11 @@
       overflow: hidden;
       cursor: pointer;
       @include mobile{
-      width: 100%;
+      width: 89%;
+      margin: 0 30px;
       margin-top: 100px;
-      max-height: 300px;
+      max-height: 45vw;
+      
 
       }
       h1{
@@ -73,7 +83,7 @@
         text-wrap: nowrap;
         overflow: hidden;
         @include mobile{
-          font-size: 75px;
+          font-size: 65px;
         }
 
         span{
@@ -87,10 +97,10 @@
     img{
       width: 100%;
       height: 100%;
-      border-radius: 20px;
+      // border-radius: 20px;
       object-fit: cover;
       @include mobile{
-      object-fit: contain;
+      object-fit: cover;
       }
 
     }
@@ -107,7 +117,19 @@
       @include mobile{
         transform: none !important;
         padding: 10px;
+        height: 40vh;
+        padding-bottom: 10px;
         align-items: center;
+      }
+      h2{
+      }
+      p{
+        @include tab{
+        font-size: 1.6vw;
+        }
+        @include mobile{
+        font-size: 14px;
+        }
       }
       .links{
         height: 60px;

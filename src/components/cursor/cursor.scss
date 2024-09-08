@@ -11,5 +11,8 @@
   @include mobile{
     display: none;
   }
+  @include tab{
+    display: none;
+  }
 }
 

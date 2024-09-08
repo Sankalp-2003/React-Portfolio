@@ -15,10 +15,12 @@
     left: 0;
     bottom: 0;
     width: 400px;
-    background: white;
+    background: #fff;
 
     @include mobile{
       width: 200px;
+      top: -10px;
+      left: -10px;
     }
 
   
@@ -56,5 +58,9 @@
     background-color: transparent;
     border: none;
     cursor: pointer;
+    @include mobile{
+      top: 17px;
+      left: 15px;
+    }
   }
 }

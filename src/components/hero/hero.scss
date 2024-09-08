@@ -18,12 +18,18 @@
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+      @include tab{
+        margin-left: 30px;
+      }
 
+     
       @include mobile{
+        margin-left: unset;
         height: 50%;
         width: 100%;
         gap: 20px;
         align-items: center;
+        padding-left: 15px;
         text-align: center;
       }
 
@@ -37,7 +43,8 @@
         cursor: default;
 
         @include mobile{
-          font-size: 36px;
+          font-size: 10vw;
+          filter: drop-shadow(0 0 10px #646cffaa);
         }
       }
       h1:hover {
@@ -96,6 +103,9 @@
    height: 100%;
    width: 100%;
    object-fit: contain;
+   @include mobile{
+    filter: drop-shadow(0 0 2em #646cffaa);
+   }
   }
   .imageContainer:hover {
     filter: drop-shadow(0 0 2em #646cffaa);
@@ -112,7 +122,7 @@
   width: 50%;
   z-index: 1;
   @include mobile{
-    font-size: 10vh;
+    font-size: 30vw;
     bottom: 50%;
   }
 }

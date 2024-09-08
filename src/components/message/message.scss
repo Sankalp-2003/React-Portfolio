@@ -15,6 +15,9 @@
   @include mobile{
     display: none;
   }
+  @include tab{
+    display: none;
+  }
 
   p{
     margin: 10px;
