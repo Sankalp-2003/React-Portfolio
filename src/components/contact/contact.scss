@@ -35,7 +35,8 @@
       line-height: 80px;
 
       @include mobile{
-      font-size: 36px;
+        text-wrap: nowrap;
+      font-size: 30px;
       }
 
     }
@@ -74,14 +75,18 @@
       margin: auto;
       z-index: 2;
       @include mobile{
-        left: 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0.3vw;
         top: 80px;
       }
       svg{
 
         @include mobile{
-          height: 320px;
-          width: 320px;
+          height: 300px;
+          width: 300px;
         }
       }
     }

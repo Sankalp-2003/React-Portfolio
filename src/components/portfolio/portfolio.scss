@@ -17,10 +17,10 @@
       text-align: right;
     }
     h1{
-
       @include mobile{
-        font-size: 36px;
-        margin-bottom: 20px;
+        font-size: 30px;
+        margin: 10px 0; 
+        margin-bottom: 15px;
       }
     }
   }
@@ -122,26 +122,55 @@
         align-items: center;
       }
       h2{
+        margin-top: 5vw;
+      font-size: 54px;
+      @include mobile{
+      font-size: 32px;
+      text-align: center;
+      }
       }
       p{
-        @include tab{
-        font-size: 1.6vw;
-        }
-        @include mobile{
+        color: gray;
+      font-size: 20px;
+      font-weight: 600;
+      // text-align: center;
+      @include tab{
+      font-size: 1.6vw;
+      }
+      @include mobile{
+        height: 33vh;
+        font-size: 16px;
+        overflow: hidden;
         font-size: 14px;
-        }
+      }
       }
       .links{
+        
         height: 60px;
         width: 230px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        @include mobile{
+          position: absolute;
+        bottom: 5vw;
+        }
 
         .demo{
 
           button{
             transition: all 0.5s ease;
+            background-color: orange;
+            border-radius: 10px;
+            border: none;
+            padding: 10px;
+            width: 150px;
+            font-size: 24px;
+            cursor: pointer;
+            text-wrap: nowrap;
+            @include mobile{
+              font-size: 20px;
+            }
           }
           button:hover{
             color: #fff;
@@ -166,33 +195,10 @@
       }
     }
     h2{
-      margin-top: 5vw;
-      font-size: 54px;
-      @include mobile{
-      font-size: 32px;
-      text-align: center;
-      }
+      
     }
     p{
-      color: gray;
-      font-size: 20px;
-      font-weight: 600;
-      // text-align: center;
-      @include mobile{
-        height: 33vh;
-        font-size: 16px;
-        overflow: hidden;
-      }
-    }
-    button{
-      background-color: orange;
-      border-radius: 10px;
-      border: none;
-      padding: 10px;
-      width: 150px;
-      font-size: 24px;
-
-      cursor: pointer;
+      
     }
   }
 }
