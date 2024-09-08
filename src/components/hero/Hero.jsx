@@ -66,13 +66,15 @@ function Hero({ handleMsg }) {
             Web developer
           </motion.h1>
           <motion.div variants={textVarients} className="buttons">
-            <a href="#Portfolio">
+            <a href="Sankalp's-Resume.pdf" download="Sankalp's-Resume.pdf">
               <motion.button
-                onMouseEnter={() => handleMsg(true, "Check out the work!")}
+                onMouseEnter={() =>
+                  handleMsg(true, "Check out the latest Resume!")
+                }
                 onMouseLeave={() => handleMsg(false, "")}
                 variants={textVarients}
               >
-                See the Latest Works
+                Download Resume
               </motion.button>
             </a>
             <a href="#Contact">
