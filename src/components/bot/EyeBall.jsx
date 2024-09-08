@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./eyeBall.scss";
 import gsap from "gsap";
+import { easeInOut, motion } from "framer-motion";
 
 const EyeBall = () => {
   const bigBallRef = useRef(null);
@@ -44,9 +45,21 @@ const EyeBall = () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
   return (
     <div className="eyeBall" ref={eyeBallRef}>
+      <motion.div
+        initial={{ y: "-0%" }}
+        animate={{ y: ["-100%", "0%", "-100%"] }}
+        // exit={{ y: "0%" }}
+        transition={{
+          duration: 0.5,
+          ease: easeInOut,
+          repeat: Infinity,
+          repeatType: "reverse",
+          repeatDelay: 6,
+        }}
+        className="eyeLayer"
+      ></motion.div>
       <div className="bigBall" ref={bigBallRef}>
         <div className="smallBall"></div>
       </div>
