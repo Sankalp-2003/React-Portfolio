@@ -56,13 +56,13 @@ const items = [
   },
   {
     id: 6,
-    title: "Restaura",
-    name: "Restaura",
-    para: "Responsive restaurant site with React & Tailwind.",
-    git: "https://github.com/Sankalp-2003/Restaura-Website",
-    link: "https://restaura-sankalp-2003.netlify.app/",
-    img: "/Restaura.png",
-    desc: ` A fully responsive restaurant website built with React and Tailwind CSS. Features include a fixed navigation bar with a mobile menu, smooth scrolling, and a Hero section with a full-screen background video and overlayed logo, using Framer Motion for animations. The site showcases restaurant dishes, includes an About section with side-by-side image and text, a mission video, and an "Our Expertise" section. The Review section highlights customer feedback, and customer images are displayed using Flexbox. The Contact section provides address, phone, and email, with social media icons in the footer. This project demonstrates skills in React, responsive design, and Framer Motion.`,
+    title: "Printify",
+    name: "Printify",
+    para: "Responsive React app inspired by Printify, with animations and interactivity.",
+    git: "https://github.com/Sankalp-2003/Printify",
+    link: "https://printify-sankalp.netlify.app/",
+    img: "/printify.png",
+    desc: ` Developed a responsive React web application inspired by the Printify homepage. Utilized SCSS for styling to create a clean and modern design. Implemented Framer Motion for animations and Swiper JS for interactive content, ensuring an engaging user experience across desktop and mobile devices.`,
   },
 ];
 
@@ -71,7 +71,6 @@ const Single = ({ item, handleMsg }) => {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    // offset: ["start start", "end start"],
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
