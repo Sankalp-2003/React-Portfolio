@@ -30,7 +30,7 @@ function Navbar({ handleMsg }) {
           <a
             onMouseEnter={() => handleMsg(true, "This is the LinkedIn link.")}
             onMouseLeave={() => handleMsg(false, "")}
-            href="https://www.linkedin.com/in/sankalp-kundapur-50abb4225?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            href="https://www.linkedin.com/in/sankalpkundapur/"
           >
             <FaLinkedin />
           </a>
