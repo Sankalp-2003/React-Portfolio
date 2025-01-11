@@ -1,8 +1,19 @@
-import React from "react";
+import { useEffect } from "react";
 import "./hero.scss";
 import { motion } from "framer-motion";
 
-function Hero({ handleMsg }) {
+function Hero({ handleMsg, setShowResume, showResume }) {
+  // useEffect(() => {
+  //   if (showResume) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [showResume]);
   const textVarients = {
     initial: {
       x: -500,
@@ -66,17 +77,21 @@ function Hero({ handleMsg }) {
             Web developer
           </motion.h1>
           <motion.div variants={textVarients} className="buttons">
-            <a href="Sankalp's-Resume.pdf" download="Sankalp's-Resume.pdf">
-              <motion.button
-                onMouseEnter={() =>
-                  handleMsg(true, "Check out the latest Resume!")
-                }
-                onMouseLeave={() => handleMsg(false, "")}
-                variants={textVarients}
-              >
-                Download Resume
-              </motion.button>
-            </a>
+            {/* <a
+              href="Sankalp's-Resume2025.pdf"
+              download="Sankalp's-Resume2025.pdf"
+            > */}
+            <motion.button
+              onMouseEnter={() =>
+                handleMsg(true, "Check out the latest Resume!")
+              }
+              onMouseLeave={() => handleMsg(false, "")}
+              onClick={() => setShowResume(true)}
+              variants={textVarients}
+            >
+              View Resume
+            </motion.button>
+            {/* </a> */}
             <a href="#Contact">
               <motion.button
                 onMouseEnter={() => handleMsg(true, "Get in touch?")}

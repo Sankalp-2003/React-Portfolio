@@ -1,9 +1,9 @@
-import React from "react";
 import "./navbar.scss";
 import { FaGithub, FaInstagramSquare, FaLinkedin } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { motion } from "framer-motion";
 import Sidebar from "../sidebar/Sidebar";
+import { useEffect, useRef } from "react";
 
 function Navbar({ handleMsg }) {
   return (

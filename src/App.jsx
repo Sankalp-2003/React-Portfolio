@@ -9,10 +9,12 @@ import Parallax from "./components/parallax/Parallax";
 import Portfolio from "./components/portfolio/Portfolio";
 import Face from "./components/bot/Face";
 import Skills from "./components/skills/Skills";
+import Resume from "./components/resume/Resume";
 
 const App = () => {
   const [isMessage, setIsMessage] = useState(true);
   const [msgInput, setMsgInput] = useState("");
+  const [showResume, setShowResume] = useState(false);
   const handleMsg = (check, msg) => {
     // if (check === true) {
     // setTimeout(() => {
@@ -37,9 +39,16 @@ const App = () => {
         msgInput={msgInput}
         handleMsg={handleMsg}
       />
+      {showResume && (
+        <Resume showResume={showResume} setShowResume={setShowResume} />
+      )}
       <section id="homepage">
         <Navbar handleMsg={handleMsg} />
-        <Hero handleMsg={handleMsg} />
+        <Hero
+          handleMsg={handleMsg}
+          showResume={showResume}
+          setShowResume={setShowResume}
+        />
       </section>
       <section id="Skills">
         <Parallax type="services" />

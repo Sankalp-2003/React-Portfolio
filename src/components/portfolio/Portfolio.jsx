@@ -5,6 +5,16 @@ import { FaGithub } from "react-icons/fa";
 
 const items = [
   {
+    id: 0.1,
+    title: "paperlessinvites",
+    name: "paperlessinvites",
+    para: "Digital invitations web App",
+    git: "https://github.com/Sankalp-2003/paperlessinvites",
+    link: "https://paperlessinvites.in/",
+    img: "/paperlessInvites.png",
+    desc: ` Developed paperlessinvites.in from scratch, creating 40+ dynamic digital invitation pages using HTML, SCSS, and TypeScript, allowing users to personalize details likenames and dates. Implemented Angular components, reactive forms, and form validation to create modular, user-friendly interfaces, ensuring seamless interaction and data integrity. Managed routing for smooth navigation and integrated logic for dynamic content generation based on user input. Collaborated in an agile environment, using Git for version control, contributing to daily stand-ups, and participating in sprint planning`,
+  },
+  {
     id: 1,
     title: "FilmyVerse",
     name: "FilmyVerse",

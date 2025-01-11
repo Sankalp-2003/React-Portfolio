@@ -1,0 +1,91 @@
+@import '../../app.scss';
+
+.resume{
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  .inner{
+    height: 100%;
+    width: 55%;
+    @include mobile{
+      width: 100%;
+    }
+    object{
+      height: 100%;
+      width: 100%;
+      border: none;
+      @include mobile{
+        height: 100vh;
+        width: 100vw;
+      }
+    }
+  }
+  .btn{
+    height: 50px;
+    width: 50px;
+    color: #fff;
+    font-size: 77px;
+    position: absolute;
+    top: 0;
+    right: 290px;
+    cursor: pointer;
+    @include mobile{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      top: 10px;
+      right: 10px;
+    }
+  }
+  .btn:hover{
+    color: red;
+  }
+}
+
+// .resume-div{
+//   position: absolute;
+//   z-index: 9999;
+//   backdrop-filter: blur(10px);
+//   width: 100%;
+//   height: 100%;
+//   top: 0;
+//   left: 0;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   @include mobile{
+//     padding: 10px;
+//   }
+//   .inner{
+//     height: 100%;
+//     width: 55%;
+//     @include mobile{
+//       width: 100%;
+//       height: 100vh;
+//     }
+//   }
+//   .btn{
+//     position: absolute;
+//     height: 50px;
+//     width: 50px;
+//     cursor: pointer;
+//     border-radius: 50%;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     color: #fff;
+//     font-size: 77px;
+//     transition: color 0.3s ease;
+//     right: 290px;
+//     top: 0;
+//   }
+//   .btn:hover{
+//     color: red;
+//   }
+// }
