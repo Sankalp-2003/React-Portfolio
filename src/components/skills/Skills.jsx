@@ -1,45 +1,29 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./skills.scss";
-import { motion, useInView } from "framer-motion";
-
-const varients = {
-  initial: {
-    x: -500,
-    y: 100,
-    opacity: 0,
-  },
-  animate: {
-    x: 0,
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 1,
-      staggerChildern: 0.1,
-    },
-  },
-};
+import { motion } from "framer-motion";
+import SkillIcon from "../skillIcon/SkillIcon";
 
 function Skills({ handleMsg }) {
-  const ref = useRef();
-  const isInView = useInView(ref, { margin: "-100px" });
+  const [isSmallScreen, setSmallScreen] = useState(false);
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      if (window.innerWidth < 870) {
+        setSmallScreen(true);
+      } else {
+        setSmallScreen(false);
+      }
+    };
+    checkScreenWidth();
+
+    window.addEventListener("resize", checkScreenWidth);
+
+    return () => {
+      window.addEventListener("resize", checkScreenWidth);
+    };
+  }, []);
   return (
-    <motion.div
-      className="services"
-      variants={varients}
-      initial="initial"
-      // whileInView="animate"
-      ref={ref}
-      animate={"animate"}
-    >
-      <motion.div className="textContainer" variants={varients}>
-        <p>
-          Crafting Responsive and
-          <br />
-          Interactive Web Experiences
-        </p>
-        <hr />
-      </motion.div>
-      <motion.div className="titleContainer" variants={varients}>
+    <div className="services">
+      <div className="titleContainer">
         <div className="title">
           <img src="skills.jpeg" alt="" />
           <h1>
@@ -54,79 +38,189 @@ function Skills({ handleMsg }) {
           </h1>
           <button>Skills</button>
         </div>
-      </motion.div>
-      <motion.div
-        className="listContainer"
-        onMouseEnter={() => handleMsg(true, "All the skills...")}
-        onMouseLeave={() => handleMsg(false, "")}
-        variants={varients}
-      >
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <div className="boxWrapper">
-            <h2>Languages:</h2>
-            <h3>JavaScript</h3>
+      </div>
+      <div className="bottom">
+        <div className="bt-left">
+          <div className="box">
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"JavaScript"}
+              percentage={90}
+              size={"100"}
+              icon={"icons/jsIcon.png"}
+              xl={-350}
+              yl={-270}
+              xs={-290}
+              ys={-260}
+              z={1}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"TypeScript"}
+              percentage={75}
+              size={"100"}
+              icon={"icons/tsIcon.png"}
+              xl={-210}
+              yl={-200}
+              xs={-180}
+              ys={-170}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"React JS"}
+              percentage={90}
+              size={"100"}
+              icon={"icons/reactIcon.png"}
+              xl={250}
+              yl={-270}
+              xs={180}
+              ys={-260}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Angular"}
+              percentage={70}
+              size={"100"}
+              icon={"icons/angularIcon.png"}
+              xl={100}
+              yl={-200}
+              xs={80}
+              ys={-170}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Sass/Scss"}
+              percentage={80}
+              size={"100"}
+              icon={"icons/sassIcon.png"}
+              xl={100}
+              yl={90}
+              xs={80}
+              ys={60}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Tailwind Css"}
+              percentage={70}
+              size={"100"}
+              icon={"icons/tailwindIcon.png"}
+              xl={250}
+              yl={170}
+              xs={180}
+              ys={150}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"HTML"}
+              percentage={90}
+              size={"100"}
+              icon={"icons/htmlIcon.png"}
+              xl={-210}
+              yl={90}
+              xs={-180}
+              ys={60}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"CSS"}
+              percentage={90}
+              size={"100"}
+              icon={"icons/cssIcon.png"}
+              xl={-350}
+              yl={170}
+              xs={-290}
+              ys={150}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Bootstrap"}
+              percentage={85}
+              size={"100"}
+              icon={"icons/bootstrapIcon.png"}
+              xl={-300}
+              yl={-50}
+              xs={-260}
+              ys={-55}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Redux Tool Kit"}
+              percentage={80}
+              size={"100"}
+              icon={"icons/reduxIcon.png"}
+              xl={200}
+              yl={-50}
+              xs={160}
+              ys={-55}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"NPM"}
+              percentage={80}
+              size={"100"}
+              icon={"icons/npmIcon.png"}
+              xl={-50}
+              yl={-250}
+              xs={-50}
+              ys={-240}
+              z={2}
+              text={false}
+            />
+            <SkillIcon
+              handleMsg={handleMsg}
+              title={"Git & Github"}
+              percentage={80}
+              size={"100"}
+              icon={"icons/gitIcon.png"}
+              xl={-50}
+              yl={150}
+              xs={-50}
+              ys={130}
+              z={2}
+              text={false}
+            />
           </div>
-          <p>
-            Skilled in JavaScript for creating interactive and dynamic web
-            features. Proficient with modern ES6+ syntax, asynchronous
-            operations, and working with APIs to enhance web applications.
-          </p>
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <div className="boxWrapper">
-            <h2>Web Development:</h2>
-
-            <h3>
-              CSS | SASS | DOM Manipulation
-              <br />| AJAX | Async Js | APIs | REST APIs | Git & Version Control
-              | Redux
-            </h3>
+          <div className="skill-img">
+            <img src="knowledge.avif" alt="" />
           </div>
-          <p>
-            Experienced in CSS, SASS, and DOM manipulation for creating dynamic
-            web pages. Skilled in AJAX, Async JavaScript, and APIs for smooth
-            data handling, and proficient with Git for version control and Redux
-            for state management.
-          </p>
-        </motion.div>
+        </div>
         <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <div className="boxWrapper">
-            <h2>WebDev Tools:</h2>
-            <h3>VSCode | Chrome DevTools | Github | Netlify | Figma</h3>
-          </div>
-          <p>
-            Proficient in using VSCode for efficient coding, Chrome DevTools for
-            debugging and performance analysis, and GitHub for version control.
-            Experienced with Netlify for deploying websites and Figma for
-            designing user interfaces.
-          </p>
-        </motion.div>
-        <motion.div
-          className="box"
-          whileHover={{ background: "lightgray", color: "black" }}
-        >
-          <div className="boxWrapper">
-            <h2>Frameworks:</h2>
-            <h3>Bootstrap | Tailwind | React.js</h3>
-          </div>
-          <p>
-            Experienced with Bootstrap and Tailwind for responsive, customizable
-            designs. Proficient in React.js for building dynamic,
-            component-based user interfaces and creating interactive web
-            applications.
-          </p>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+          initial={{
+            x: !isSmallScreen && "-105%",
+            y: isSmallScreen && "105%",
+          }}
+          whileInView={{
+            x: 0,
+            y: 0,
+          }}
+          viewport={{ once: true }}
+          transition={{
+            duration: 2,
+            ease: [0.65, 0, 0.35, 1],
+          }}
+          className="bt-right"
+        ></motion.div>
+      </div>
+    </div>
   );
 }
 

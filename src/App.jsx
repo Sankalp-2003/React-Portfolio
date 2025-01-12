@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./app.scss";
 import Contact from "./components/contact/Contact";
 import Cursor from "./components/cursor/Cursor";
@@ -16,20 +16,22 @@ const App = () => {
   const [msgInput, setMsgInput] = useState("");
   const [showResume, setShowResume] = useState(false);
   const handleMsg = (check, msg) => {
-    // if (check === true) {
-    // setTimeout(() => {
     setIsMessage(check);
-    // }, 100);
-
     setMsgInput(msg);
-    // }
-    // if (check === false) {
-    // setTimeout(() => {
     setMsgInput(msg);
-    // }, 100);
     setIsMessage(check);
-    // }
   };
+  useEffect(() => {
+    if (showResume) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [showResume]);
   return (
     <div>
       <Cursor />
