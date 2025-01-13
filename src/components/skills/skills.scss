@@ -140,6 +140,7 @@
     }
     .bt-left{
       border: 2px solid gray;
+      background-color: #0E0E26;
       border-radius: 20px;
       height: 100%;
       width: 50%;
@@ -185,12 +186,14 @@
     }
     .bt-right{
       border: 2px solid gray;
+      background-color: #0E0E26;
       border-radius: 20px;
       height: 100%;
       width: 50%;
       margin-left: 5px;
       position: relative;
-      z-index: 2;
+      z-index: 1;
+      overflow: hidden;
       @include mobile{
         height: 50%;
       width: 100%;

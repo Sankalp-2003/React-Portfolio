@@ -7,16 +7,16 @@ import { motion } from "framer-motion";
 
 function SkillIcon({
   percentage,
-  size,
   icon,
   xl,
   yl,
   xs,
   ys,
   z,
-  text,
   handleMsg,
   title,
+  skill,
+  onHover,
 }) {
   const [inViewRef, inView] = useInView({
     threshold: 0.5,
@@ -32,11 +32,11 @@ function SkillIcon({
         setAnimatedPercentage((prev) => {
           const nextValue = prev < percentage ? prev + 1 : percentage;
           if (nextValue <= 50) {
-            setBarColor("red");
+            setBarColor("#F63737");
           } else if (nextValue > 50 && nextValue < 75) {
-            setBarColor("orange");
+            setBarColor("#FFB700");
           } else if (nextValue >= 75) {
-            setBarColor("green");
+            setBarColor("#28C244");
           }
           return nextValue;
         });
@@ -62,8 +62,14 @@ function SkillIcon({
 
   return (
     <motion.div
-      onMouseEnter={() => handleMsg(true, title)}
-      onMouseLeave={() => handleMsg(false, "")}
+      onMouseEnter={() => {
+        handleMsg(true, title);
+        onHover(skill);
+      }}
+      onMouseLeave={() => {
+        handleMsg(false, "");
+        onHover(null);
+      }}
       initial={{
         x: "-50%",
         y: "-50%",
@@ -79,15 +85,14 @@ function SkillIcon({
       className="skillIcon-div"
       ref={inViewRef}
       style={{
-        width: `${isSmallScreen ? size / 2 : size}px`,
-        height: `${isSmallScreen ? size / 2 : size}px`,
+        width: `${isSmallScreen ? 50 : 100}px`,
+        height: `${isSmallScreen ? 50 : 100}px`,
         zIndex: z,
       }}
     >
       <CircularProgressbar
         className="circle"
         value={animatedPercentage}
-        text={text ? `${animatedPercentage}%` : ""}
         styles={buildStyles({
           pathColor: barColor,
           trailColor: "#0E0E24",
