@@ -123,7 +123,7 @@ function Hero({ handleMsg, setShowResume, showResume }) {
         onMouseLeave={() => handleMsg(false, "")}
         className="imageContainer"
       >
-        <img src="/profile.png" alt="" />
+        <img src="/profile-img2.png" alt="" />
       </div>
     </div>
   );

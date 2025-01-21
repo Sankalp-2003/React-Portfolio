@@ -3,16 +3,16 @@ import "./icons.scss";
 
 function Icons({ icons }) {
   const iconNames = [
-    { link: "public/icons/jsIcon.png", key: "js" },
-    { link: "public/icons/tsIcon.png", key: "ts" },
-    { link: "public/icons/angularIcon.png", key: "angular" },
-    { link: "public/icons/reactIcon.png", key: "react" },
-    { link: "public/icons/htmlIcon.png", key: "html" },
-    { link: "public/icons/cssIcon.png", key: "css" },
-    { link: "public/icons/tailwindIcon.png", key: "tailwind" },
-    { link: "public/icons/sassIcon.png", key: "scss" },
-    { link: "public/icons/gsapIcon.png", key: "gsap" },
-    { link: "public/icons/motionIcon.png", key: "motion" },
+    { link: "icons/jsIcon.png", key: "js" },
+    { link: "icons/tsIcon.png", key: "ts" },
+    { link: "icons/angularIcon.png", key: "angular" },
+    { link: "icons/reactIcon.png", key: "react" },
+    { link: "icons/htmlIcon.png", key: "html" },
+    { link: "icons/cssIcon.png", key: "css" },
+    { link: "icons/tailwindIcon.png", key: "tailwind" },
+    { link: "icons/sassIcon.png", key: "scss" },
+    { link: "icons/gsapIcon.png", key: "gsap" },
+    { link: "icons/motionIcon.png", key: "motion" },
   ];
   return (
     <div className="icons">
