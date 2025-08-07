@@ -1,9 +1,9 @@
 @import '../../app.scss';
 
-.portfolio{
+.portfolio {
   position: relative;
 
-  .progress{
+  .progress {
     position: sticky;
     top: 0;
     left: 0;
@@ -11,30 +11,33 @@
     text-align: center;
     color: orange;
     font-size: 36px;
-    @include mobile{
+
+    @include mobile {
       font-size: 22px;
       padding: 10px;
       text-align: right;
     }
-    h1{
-      @include mobile{
+
+    h1 {
+      @include mobile {
         font-size: 30px;
-        margin: 10px 0; 
+        margin: 10px 0;
         margin-bottom: 15px;
       }
     }
   }
 
-  .progressBar{
+  .progressBar {
     height: 10px;
     background-color: #fff;
     border-radius: 10px;
-    @include mobile{
+
+    @include mobile {
       margin-top: 10px;
     }
   }
 
-  .container{
+  .container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -42,7 +45,7 @@
     height: 100%;
     overflow: hidden;
 
-    .wrapper{
+    .wrapper {
       max-width: 1366px;
       height: 100%;
       margin: auto;
@@ -50,13 +53,15 @@
       align-items: center;
       justify-content: center;
       gap: 50px;
-      @include mobile{
+
+      @include mobile {
         position: relative;
-      flex-direction: column;
-      gap: 20px;
+        flex-direction: column;
+        gap: 20px;
       }
     }
-    .imgContainer{
+
+    .imgContainer {
       flex: 1;
       position: relative;
       height: 50%;
@@ -64,15 +69,17 @@
       border-radius: 20px;
       overflow: hidden;
       cursor: pointer;
-      @include mobile{
-      width: 89%;
-      margin: 0 30px;
-      margin-top: 100px;
-      max-height: 45vw;
-      
+
+      @include mobile {
+        width: 89%;
+        margin: 0 30px;
+        margin-top: 100px;
+        max-height: 45vw;
+
 
       }
-      h1{
+
+      h1 {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -82,83 +89,110 @@
         font-size: 90px;
         text-wrap: nowrap;
         overflow: hidden;
-        @include mobile{
+
+        @include mobile {
           font-size: 65px;
         }
 
-        span{
+        span {
           display: inline-block;
           filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-          transition: filter 0.3s ease, color 0.3s ease; 
+          transition: filter 0.3s ease, color 0.3s ease;
         }
       }
 
-    
-    img{
-      width: 100%;
-      height: 100%;
-      // border-radius: 20px;
-      object-fit: cover;
-      @include mobile{
-      object-fit: cover;
-      }
 
+      img {
+        width: 100%;
+        height: 100%;
+        // border-radius: 20px;
+        object-fit: cover;
+
+        @include mobile {
+          object-fit: cover;
+        }
+
+      }
     }
-  }
-  .imgContainer:hover{
-    filter: drop-shadow(0 0 50px orange);
-          transition: filter 0.3s ease, color 0.3s ease; 
-  }
-    .textContainer{
+
+    .imgContainer:hover {
+      filter: drop-shadow(0 0 50px orange);
+      transition: filter 0.3s ease, color 0.3s ease;
+    }
+
+    .textContainer {
       flex: 1;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      @include mobile{
+
+      @include mobile {
         transform: none !important;
         padding: 10px;
         height: 40vh;
         padding-bottom: 10px;
         align-items: center;
       }
-      h2{
+
+      .icons {
+        display: flex;
+
+        img {
+          height: 30px;
+          width: 30px;
+          margin-left: 20px;
+          border-radius: 5px;
+
+          @include mobile {
+            margin-left: 10px;
+          }
+        }
+      }
+
+      h2 {
         margin-top: 5vw;
-      font-size: 54px;
-      @include mobile{
-      font-size: 32px;
-      text-align: center;
+        font-size: 54px;
+
+        @include mobile {
+          font-size: 32px;
+          text-align: center;
+        }
       }
-      }
-      p{
+
+      p {
         color: gray;
-      font-size: 20px;
-      font-weight: 600;
-      // text-align: center;
-      @include tab{
-      font-size: 1.6vw;
+        font-size: 20px;
+        font-weight: 600;
+
+        // text-align: center;
+        @include tab {
+          font-size: 1.6vw;
+        }
+
+        @include mobile {
+          height: 33vh;
+          font-size: 14px;
+          overflow: hidden;
+          font-size: 14px;
+        }
       }
-      @include mobile{
-        height: 33vh;
-        font-size: 14px;
-        overflow: hidden;
-        font-size: 14px;
-      }
-      }
-      .links{
-        
+
+      .links {
+
         height: 60px;
         width: 230px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        @include mobile{
+
+        @include mobile {
           position: absolute;
-        bottom: 5vw;
+          bottom: 5vw;
         }
 
-        .demo{
+        .demo {
 
-          button{
+          button {
             transition: all 0.5s ease;
             background-color: orange;
             border-radius: 10px;
@@ -168,21 +202,25 @@
             font-size: 24px;
             cursor: pointer;
             text-wrap: nowrap;
-            @include mobile{
+
+            @include mobile {
               font-size: 20px;
             }
           }
-          button:hover{
+
+          button:hover {
             color: #fff;
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
-          color: #fff;
-          transition: filter 0.3s ease, color 0.3s ease; 
+            color: #fff;
+            transition: filter 0.3s ease, color 0.3s ease;
           }
         }
-        .git{
+
+        .git {
           margin-top: 0.7vw;
           font-size: 40px;
-          @include mobile{
+
+          @include mobile {
             margin-top: 15px;
           }
         }
@@ -190,16 +228,14 @@
         .git:hover {
           filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
           color: #fff;
-          transition: filter 0.3s ease, color 0.3s ease; 
+          transition: filter 0.3s ease, color 0.3s ease;
         }
       }
-      
+
     }
-    h2{
-      
-    }
-    p{
-      
-    }
+
+    h2 {}
+
+    p {}
   }
 }

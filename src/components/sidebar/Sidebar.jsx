@@ -1,4 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+// @ts-nocheck
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useEffect, useRef, useState } from "react";
 import ToggleButton from "./toggleButton/ToggleButton";
 import Links from "./links/Links";
 import "./sidebar.scss";
@@ -47,7 +49,7 @@ function sidebar({ handleMsg }) {
       animate={open ? "open" : "closed"}
     >
       <motion.div className="bg" variants={variants}>
-        <Links />
+        <Links setOpen={setOpen} />
       </motion.div>
       <ToggleButton setOpen={setOpen} open={open} />
     </motion.div>

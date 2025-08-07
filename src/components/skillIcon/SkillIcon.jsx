@@ -1,23 +1,12 @@
+/* eslint-disable react/prop-types */
 import "./skillIcon.scss";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-function SkillIcon({
-  percentage,
-  icon,
-  xl,
-  yl,
-  xs,
-  ys,
-  z,
-  handleMsg,
-  title,
-  skill,
-  onHover,
-}) {
+function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
   const [inViewRef, inView] = useInView({
     threshold: 0.5,
   });
@@ -64,11 +53,9 @@ function SkillIcon({
     <motion.div
       onMouseEnter={() => {
         handleMsg(true, title);
-        onHover(skill);
       }}
       onMouseLeave={() => {
         handleMsg(false, "");
-        onHover(null);
       }}
       initial={{
         x: "-50%",

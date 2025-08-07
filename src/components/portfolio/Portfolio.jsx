@@ -1,8 +1,9 @@
-import React, { useRef, useState } from "react";
+// @ts-nocheck
+/* eslint-disable react/prop-types */
+import { useRef, useState } from "react";
 import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import Icons from "./icons/Icons";
 import { ITEMS } from "./data";
 
 const items = ITEMS;
@@ -34,14 +35,14 @@ const Single = ({ item, handleMsg }) => {
             onMouseEnter={() => imgEnter(item.para)}
             onMouseLeave={imgLeave}
             initial={{ scale: 1 }}
-            animate={hovering ? { scale: 0.9 } : { scale: 1 }}
+            animate={hovering ? { scale: 0.95 } : { scale: 1 }}
             transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
             className="imgContainer"
             ref={ref}
           >
             <motion.img
               initial={{ scale: 1 }}
-              animate={hovering ? { scale: 1.2 } : { scale: 1 }}
+              animate={hovering ? { scale: 1.07 } : { scale: 1 }}
               transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
               src={item.img}
               alt=""
@@ -82,7 +83,11 @@ const Single = ({ item, handleMsg }) => {
                 <FaGithub />
               </a>
             </div>
-            <Icons icons={item.icons} />
+            <div className="icons">
+              {item.icons.map((icon, index) => (
+                <img key={index} src={icon} alt={`icon_${index}`} />
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>

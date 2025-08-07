@@ -1,7 +1,9 @@
-import React, { useRef, useState } from "react";
+// @ts-nocheck
+/* eslint-disable react/prop-types */
+import { useRef, useState } from "react";
 import "./contact.scss";
 import { IoMdHappy, IoMdMail } from "react-icons/io";
-import { IoCall, IoHappySharp } from "react-icons/io5";
+import { IoCall } from "react-icons/io5";
 import { BsFillSendFill } from "react-icons/bs";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
@@ -75,7 +77,7 @@ function Contact({ handleMsg }) {
       whileInView="animate"
     >
       <motion.div className="textContainer" variants={varients}>
-        <motion.h1 variants={varients}>Let's Work together</motion.h1>
+        <motion.h1 variants={varients}>Let&#39;s Work together</motion.h1>
         <motion.div className="item" variants={varients}>
           <h2>Mail</h2>
           <span>
