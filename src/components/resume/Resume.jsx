@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+// @ts-nocheck
+/* eslint-disable react/prop-types */
+import { useEffect, useRef } from "react";
 import "./resume.scss";
-function Resume({ showResume, setShowResume }) {
+function Resume({ setShowResume }) {
   const resumeRef = useRef(null);
 
   useEffect(() => {
@@ -20,7 +22,7 @@ function Resume({ showResume, setShowResume }) {
       <div className="resume">
         <div className="inner" ref={resumeRef}>
           <object
-            data="Sankalp's-Resume2025.pdf"
+            data="https://drive.google.com/file/d/1eWPaN9dkwk07OeRaHsPmyq-NShXEO5Y8/preview"
             type="application/pdf"
           ></object>
         </div>

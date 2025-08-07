@@ -41,16 +41,10 @@ const App = () => {
         msgInput={msgInput}
         handleMsg={handleMsg}
       />
-      {showResume && (
-        <Resume showResume={showResume} setShowResume={setShowResume} />
-      )}
+      {showResume && <Resume setShowResume={setShowResume} />}
       <section id="homepage">
         <Navbar handleMsg={handleMsg} />
-        <Hero
-          handleMsg={handleMsg}
-          showResume={showResume}
-          setShowResume={setShowResume}
-        />
+        <Hero handleMsg={handleMsg} setShowResume={setShowResume} />
       </section>
       <section id="Skills">
         <Parallax type="services" />

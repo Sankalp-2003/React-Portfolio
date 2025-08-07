@@ -1,5 +1,5 @@
+/* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import React from "react";
 
 const variants = {
   open: {
@@ -26,7 +26,7 @@ const ItemVariants = {
   },
 };
 
-function Links() {
+function Links({ setOpen }) {
   const items = ["homepage", "Skills", "Works", "Contact"];
 
   return (
@@ -38,6 +38,7 @@ function Links() {
           variants={ItemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
+          onClick={() => setOpen(false)}
         >
           {item}
         </motion.a>

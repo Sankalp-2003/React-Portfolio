@@ -1,8 +1,10 @@
+// @ts-nocheck
+/* eslint-disable react/prop-types */
 import "./hero.scss";
 import { motion } from "framer-motion";
 
-function Hero({ handleMsg, setShowResume, showResume }) {
-  const textVarients = {
+function Hero({ handleMsg, setShowResume }) {
+  const textVariants = {
     initial: {
       x: -500,
       opacity: 0,
@@ -25,7 +27,7 @@ function Hero({ handleMsg, setShowResume, showResume }) {
     },
   };
 
-  const sliderVarients = {
+  const sliderVariants = {
     initial: {
       x: 0,
     },
@@ -44,14 +46,14 @@ function Hero({ handleMsg, setShowResume, showResume }) {
       <div className="wrapper">
         <motion.div
           className="textContainer"
-          variants={textVarients}
+          variants={textVariants}
           initial="initial"
           animate="animate"
         >
           <motion.h2
             onMouseEnter={() => handleMsg(true, "That's Sankalp, his name.")}
             onMouseLeave={() => handleMsg(false, "")}
-            variants={textVarients}
+            variants={textVariants}
           >
             SANKALP
           </motion.h2>
@@ -60,18 +62,18 @@ function Hero({ handleMsg, setShowResume, showResume }) {
               handleMsg(true, "Yep, he's the developer in action!")
             }
             onMouseLeave={() => handleMsg(false, "")}
-            variants={textVarients}
+            variants={textVariants}
           >
             Web developer
           </motion.h1>
-          <motion.div variants={textVarients} className="buttons">
+          <motion.div variants={textVariants} className="buttons">
             <motion.button
               onMouseEnter={() =>
                 handleMsg(true, "Check out the latest Resume!")
               }
               onMouseLeave={() => handleMsg(false, "")}
               onClick={() => setShowResume(true)}
-              variants={textVarients}
+              variants={textVariants}
             >
               View Resume
             </motion.button>
@@ -79,14 +81,14 @@ function Hero({ handleMsg, setShowResume, showResume }) {
               <motion.button
                 onMouseEnter={() => handleMsg(true, "Get in touch?")}
                 onMouseLeave={() => handleMsg(false, "")}
-                variants={textVarients}
+                variants={textVariants}
               >
                 Contact Me
               </motion.button>
             </a>
           </motion.div>
           <motion.img
-            variants={textVarients}
+            variants={textVariants}
             animate="scrollButton"
             src="/scroll.png"
             alt=""
@@ -95,11 +97,11 @@ function Hero({ handleMsg, setShowResume, showResume }) {
       </div>
       <motion.div
         className="slidingTextContainer"
-        variants={sliderVarients}
+        variants={sliderVariants}
         initial="initial"
         animate="animate"
       >
-        Web devaloper
+        Web developer
       </motion.div>
       <div
         onMouseEnter={() => handleMsg(true, "That's Sankalp right there.")}
