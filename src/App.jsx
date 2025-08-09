@@ -1,67 +1,33 @@
-import { useEffect, useState } from "react";
-import "./app.scss";
-import Contact from "./components/contact/Contact";
-import Cursor from "./components/cursor/Cursor";
-import Hero from "./components/hero/Hero";
-import Message from "./components/message/Message";
-import Navbar from "./components/navbar/Navbar";
-import Parallax from "./components/parallax/Parallax";
-import Portfolio from "./components/portfolio/Portfolio";
-import Face from "./components/bot/Face";
-import Skills from "./components/skills/Skills";
-import Resume from "./components/resume/Resume";
+import { Navigate, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import Projects from "./components/admin/Projects";
+import Skills from "./components/admin/Skills";
+import ProjectDetails from "./components/admin/ProjectDetails";
+import SkillDetails from "./components/admin/SkillDetails";
+import AddNewProject from "./components/admin/AddNewProject";
+import AddNewSkill from "./components/admin/AddNewSkill";
 
 const App = () => {
-  const [isMessage, setIsMessage] = useState(true);
-  const [msgInput, setMsgInput] = useState("");
-  const [showResume, setShowResume] = useState(false);
-  const handleMsg = (check, msg) => {
-    setIsMessage(check);
-    setMsgInput(msg);
-    setMsgInput(msg);
-    setIsMessage(check);
-  };
-  useEffect(() => {
-    if (showResume) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showResume]);
   return (
-    <div>
-      <Cursor />
-      <Face handleMsg={handleMsg} />
-      <Message
-        isMessage={isMessage}
-        msgInput={msgInput}
-        handleMsg={handleMsg}
-      />
-      {showResume && <Resume setShowResume={setShowResume} />}
-      <section id="homepage">
-        <Navbar handleMsg={handleMsg} />
-        <Hero handleMsg={handleMsg} setShowResume={setShowResume} />
-      </section>
-      <section id="Skills">
-        <Parallax type="services" />
-      </section>
-      <section>
-        <Skills handleMsg={handleMsg} />
-      </section>
-      <section id="Works">
-        <Parallax type="work" />
-      </section>
-      <div id="Portfolio">
-        <Portfolio handleMsg={handleMsg} />
-      </div>
-      <section id="Contact">
-        <Contact handleMsg={handleMsg} />
-      </section>
-    </div>
+    <Provider store={store}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/admin" element={<AdminDashboard />}>
+          <Route index element={<Navigate to="projects" replace />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="projects/:id" element={<ProjectDetails />} />
+          <Route path="skills" element={<Skills />} />
+          <Route path="skills/:id" element={<SkillDetails />} />
+          <Route path="add-project" element={<AddNewProject />} />
+          <Route path="add-skill" element={<AddNewSkill />} />
+        </Route>
+      </Routes>
+    </Provider>
   );
 };
 

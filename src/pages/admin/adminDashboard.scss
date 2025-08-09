@@ -1,0 +1,42 @@
+@import "../../app.scss";
+
+.admin-dashboard {
+    height: 100vh;
+    width: 100%;
+    padding-left: 20%;
+    display: flex;
+    overflow-x: hidden;
+
+    @include mobile {
+        flex-direction: column;
+        padding: unset;
+    }
+
+    .admin-navbar {
+        display: none;
+
+        @include mobile {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .admin-icons {
+            font-size: 32px;
+        }
+
+        .hide-icon {
+            display: none;
+        }
+    }
+
+    .admin-content {
+        flex: 4;
+        padding: 30px 40px;
+
+        @include mobile {
+            padding: 10px 20px;
+        }
+    }
+}

@@ -3,10 +3,10 @@
 import "./skills.scss";
 import { motion } from "framer-motion";
 import SkillIcon from "../skillIcon/SkillIcon";
-import { SKILLS } from "./SkillsData";
+import { useSelector } from "react-redux";
 
 function Skills({ handleMsg }) {
-  const skillsInfo = SKILLS;
+  const { skills } = useSelector((state) => state.skills);
   return (
     <div className="services">
       <div className="titleContainer">
@@ -28,18 +28,18 @@ function Skills({ handleMsg }) {
       <div className="bottom">
         <div className="bt-left">
           <div>
-            {skillsInfo.map((skill, i) => (
+            {skills?.map((skill, index) => (
               <SkillIcon
-                key={skill.id}
+                key={index}
                 handleMsg={handleMsg}
                 title={skill.title}
                 percentage={skill.percentage}
                 icon={skill.icon}
-                xl={skill.xl}
-                yl={skill.yl}
-                xs={skill.xs}
-                ys={skill.ys}
-                z={i + 1}
+                xl={skill.positions.xl}
+                yl={skill.positions.yl}
+                xs={skill.positions.xs}
+                ys={skill.positions.ys}
+                z={index + 1}
               />
             ))}
           </div>
