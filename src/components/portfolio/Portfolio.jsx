@@ -4,11 +4,10 @@ import { useRef, useState } from "react";
 import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import { ITEMS } from "./data";
-
-const items = ITEMS;
+import { useSelector } from "react-redux";
 
 const Single = ({ item, handleMsg }) => {
+  const { skillImages } = useSelector((state) => state.skills);
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -44,7 +43,7 @@ const Single = ({ item, handleMsg }) => {
               initial={{ scale: 1 }}
               animate={hovering ? { scale: 1.07 } : { scale: 1 }}
               transition={{ ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
-              src={item.img}
+              src={item.thumbnail}
               alt=""
             />
             <a href={item.link}>
@@ -64,7 +63,7 @@ const Single = ({ item, handleMsg }) => {
           </motion.div>
           <motion.div className="textContainer" style={{ y }}>
             <h2>{item.title}</h2>
-            <p>{item.desc}</p>
+            <p>{item.description}</p>
             <div className="links">
               <a
                 onMouseEnter={() => handleMsg(true, "Watch Live Demo")}
@@ -84,9 +83,13 @@ const Single = ({ item, handleMsg }) => {
               </a>
             </div>
             <div className="icons">
-              {item.icons.map((icon, index) => (
-                <img key={index} src={icon} alt={`icon_${index}`} />
-              ))}
+              {item.techStack.map((item) => {
+                const safeKey = item.replace(/\s+/g, "_");
+                const skill = skillImages?.[safeKey];
+                if (skill) {
+                  return <img src={skill.image} key={item} alt={item} />;
+                }
+              })}
             </div>
           </motion.div>
         </div>
@@ -96,6 +99,7 @@ const Single = ({ item, handleMsg }) => {
 };
 
 function Portfolio({ handleMsg }) {
+  const { projects } = useSelector((state) => state.projects);
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -114,7 +118,7 @@ function Portfolio({ handleMsg }) {
         <h1>Featured Works</h1>
         <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
-      {items.map((item) => (
+      {projects?.map((item) => (
         <Single handleMsg={handleMsg} item={item} key={item.id} />
       ))}
     </div>

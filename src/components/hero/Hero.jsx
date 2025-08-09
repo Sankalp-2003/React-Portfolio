@@ -1,9 +1,11 @@
 // @ts-nocheck
 /* eslint-disable react/prop-types */
+import { useSelector } from "react-redux";
 import "./hero.scss";
 import { motion } from "framer-motion";
 
 function Hero({ handleMsg, setShowResume }) {
+  const { profile } = useSelector((state) => state.profile);
   const textVariants = {
     initial: {
       x: -500,
@@ -108,7 +110,7 @@ function Hero({ handleMsg, setShowResume }) {
         onMouseLeave={() => handleMsg(false, "")}
         className="imageContainer"
       >
-        <img src="/profile-img2.png" alt="" />
+        <img src={profile?.profilePic} alt="Profile Picture" />
       </div>
     </div>
   );

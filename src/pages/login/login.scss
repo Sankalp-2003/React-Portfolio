@@ -1,0 +1,76 @@
+@import '../../app.scss';
+
+.login-container {
+    height: 100vh;
+    width: -100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        padding: 0 20px;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 400px;
+
+        .title {
+            text-align: center;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #663399;
+
+            input {
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #663399;
+                background-color: transparent;
+                color: white;
+                font-size: 16px;
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: #9FA0BB;
+                }
+            }
+
+            button {
+                padding: 10px;
+                border-radius: 5px;
+                border: none;
+                background-color: #663399;
+                color: white;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #9FA0BB;
+                }
+            }
+
+            .home-btn {
+                background-color: transparent;
+                border: 2px solid #663399;
+                color: #9FA0BB;
+
+                &:hover {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

@@ -57,6 +57,7 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
       onMouseLeave={() => {
         handleMsg(false, "");
       }}
+      viewport={{ once: true }}
       initial={{
         x: "-50%",
         y: "-50%",
