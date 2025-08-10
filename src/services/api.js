@@ -5,16 +5,13 @@ const API_URL = import.meta.env.VITE_BACKEND_URL;
 
 const api = axios.create({
   baseURL: API_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
 });
 
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token");
     if (token) {
-      config.headers["Authorization"] = `Bearer ${token}`;
+      config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
@@ -25,14 +22,15 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (
       error.response &&
       error.response.status === 401 &&
-      error.response.data?.message?.toLowerCase().includes("token")
+      error.response.data?.message === "Not authorized"
     ) {
       localStorage.removeItem("token");
       localStorage.removeItem("user");
+      window.location.href = "/login";
     }
 
     return Promise.reject(error);

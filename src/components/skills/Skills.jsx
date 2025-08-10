@@ -4,11 +4,19 @@ import "./skills.scss";
 import { motion } from "framer-motion";
 import SkillIcon from "../skillIcon/SkillIcon";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import SkillPositionEditor from "./SkillPositionEditor";
 
 function Skills({ handleMsg }) {
   const { skills } = useSelector((state) => state.skills);
+  const [selectedSkill, setSelectedSkill] = useState(null);
+
   return (
     <div className="services">
+      <SkillPositionEditor
+        skillId={selectedSkill}
+        onClear={() => setSelectedSkill(null)}
+      />
       <div className="titleContainer">
         <div className="title">
           <img src="skills.jpeg" alt="" />
@@ -32,14 +40,9 @@ function Skills({ handleMsg }) {
               <SkillIcon
                 key={index}
                 handleMsg={handleMsg}
-                title={skill.title}
-                percentage={skill.percentage}
-                icon={skill.icon}
-                xl={skill.positions.xl}
-                yl={skill.positions.yl}
-                xs={skill.positions.xs}
-                ys={skill.positions.ys}
                 z={index + 1}
+                skill={skill}
+                setSelectedSkill={setSelectedSkill}
               />
             ))}
           </div>

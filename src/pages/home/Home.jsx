@@ -23,11 +23,11 @@ const Home = () => {
   const [msgInput, setMsgInput] = useState("");
   const [showResume, setShowResume] = useState(false);
   const dispatch = useDispatch();
-  const { loading: profileLoading } = useSelector((state) => state.profile);
-  const { loading: skillsLoading } = useSelector((state) => state.skills);
-  const { loading: projectsLoading } = useSelector((state) => state.projects);
+  const { profile } = useSelector((state) => state.profile);
+  const { skills, skillImages } = useSelector((state) => state.skills);
+  const { projects } = useSelector((state) => state.projects);
 
-  const loading = skillsLoading || projectsLoading || profileLoading;
+  const loading = !profile || !skills || !skillImages || !projects;
 
   const handleMsg = (check, msg) => {
     setIsMessage(check);

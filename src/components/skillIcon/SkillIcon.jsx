@@ -6,7 +6,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
+function SkillIcon({ z, handleMsg, skill, setSelectedSkill }) {
   const [inViewRef, inView] = useInView({
     threshold: 0.5,
   });
@@ -16,10 +16,11 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
-    if (inView && animatedPercentage !== percentage) {
+    if (inView && animatedPercentage !== skill?.percentage) {
       const interval = setInterval(() => {
         setAnimatedPercentage((prev) => {
-          const nextValue = prev < percentage ? prev + 1 : percentage;
+          const nextValue =
+            prev < skill?.percentage ? prev + 1 : skill?.percentage;
           if (nextValue <= 50) {
             setBarColor("#F63737");
           } else if (nextValue > 50 && nextValue < 75) {
@@ -32,7 +33,7 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
       }, 15);
       return () => clearInterval(interval);
     }
-  }, [inView, animatedPercentage, percentage]);
+  }, [inView, animatedPercentage, skill?.percentage]);
 
   useEffect(() => {
     const checkScreenWidth = () => {
@@ -52,7 +53,7 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
   return (
     <motion.div
       onMouseEnter={() => {
-        handleMsg(true, title);
+        handleMsg(true, skill?.title);
       }}
       onMouseLeave={() => {
         handleMsg(false, "");
@@ -63,8 +64,12 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
         y: "-50%",
       }}
       whileInView={{
-        x: isSmallScreen ? `${xs}%` : `${xl}%`,
-        y: isSmallScreen ? `${ys}%` : `${yl}%`,
+        x: isSmallScreen
+          ? `${skill?.positions.xs}%`
+          : `${skill?.positions.xl}%`,
+        y: isSmallScreen
+          ? `${skill?.positions.ys}%`
+          : `${skill?.positions.yl}%`,
       }}
       transition={{
         duration: 1,
@@ -77,6 +82,7 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
         height: `${isSmallScreen ? 50 : 100}px`,
         zIndex: z,
       }}
+      onClick={() => setSelectedSkill(skill._id)}
     >
       <CircularProgressbar
         className="circle"
@@ -88,10 +94,10 @@ function SkillIcon({ percentage, icon, xl, yl, xs, ys, z, handleMsg, title }) {
           textSize: "20px",
         })}
       />
-      {icon && (
+      {skill?.icon && (
         <>
           <div className="skill-icon">
-            <img src={icon} alt="" />
+            <img src={skill?.icon} alt="" />
           </div>
         </>
       )}
