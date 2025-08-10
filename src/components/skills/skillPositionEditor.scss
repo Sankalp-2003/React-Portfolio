@@ -1,0 +1,90 @@
+@import "../../app.scss";
+
+.skillPositionEditor {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    padding: 10px 20px;
+    background-color: #25103D;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    z-index: 999;
+
+    @include mobile {
+        top: 60px;
+        right: 10px;
+    }
+
+    .icon-and-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        .percentage-container {
+
+            .percentage-input {
+                width: 25px;
+                padding: 0px 5px;
+                border: none;
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+        }
+
+        img {
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+        }
+
+        button {
+            all: unset;
+        }
+
+        .icon {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .clear-icon {
+            font-size: 28px;
+        }
+
+        .save-icon {
+            font-size: 24px;
+            color: #28C244;
+        }
+    }
+
+    .positioning-inputs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+
+        .input-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    input {
+        all: unset;
+        width: 100px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        font-size: 20px;
+        padding: 5px 10px;
+    }
+
+    label {
+        font-size: 24px;
+        font-weight: 600;
+    }
+}

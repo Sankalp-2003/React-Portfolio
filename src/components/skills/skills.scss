@@ -1,67 +1,75 @@
 @import '../../app.scss';
 
-.services{
+.services {
+  position: relative;
   background: linear-gradient(180deg, #0c0c1d, #111132);
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .titleContainer{
+  .titleContainer {
     flex: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
 
-    @include mobile{
+    @include mobile {
       width: 100%;
       padding: 10px;
 
     }
 
-    .title{
+    .title {
       display: flex;
       gap: 50px;
       align-items: center;
-      @include tab{
+
+      @include tab {
         text-align: center;
         gap: 5px;
       }
-      @include mobile{
+
+      @include mobile {
         flex-direction: column;
         text-align: center;
         gap: 5px;
       }
     }
 
-    img{
+    img {
       width: 100px;
       height: 50px;
       border-radius: 50px;
       object-fit: cover;
-      @include tab{
+
+      @include tab {
         width: 250px;
         height: 70px;
       }
-      @include mobile{
+
+      @include mobile {
         width: 100px;
         height: 30px;
       }
     }
 
-    h1{
+    h1 {
       font-size: 44px;
       font-weight: 100;
-      @include tab{
+
+      @include tab {
         font-size: 56px;
       }
-      @include mobile{
+
+      @include mobile {
         font-size: 26px;
       }
 
     }
-    button{
+
+    button {
       width: 100px;
       height: 50px;
       border-radius: 50px;
@@ -71,28 +79,33 @@
       font-weight: 900;
       color: #fff;
       cursor: pointer;
-      @include tab{
+
+      @include tab {
         font-size: 24px;
         width: 250px;
         height: 70px;
       }
-      @include mobile{
+
+      @include mobile {
         font-size: 16px;
         width: 80px;
         height: 30px;
       }
     }
   }
-  .bottom{
+
+  .bottom {
     height: 90vh;
     width: 100%;
     padding: 10px;
     display: flex;
-    @include mobile{
+
+    @include mobile {
       flex-direction: column;
     }
-    .bt-left{
-      flex:1;
+
+    .bt-left {
+      flex: 1;
       border: 2px solid gray;
       background-color: #0E0E26;
       border-radius: 20px;
@@ -103,17 +116,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      @include mobile{
+
+      @include mobile {
         height: 50%;
-      width: 100%;
-      margin-right: unset;
-      margin-bottom: 5px;
+        width: 100%;
+        margin-right: unset;
+        margin-bottom: 5px;
       }
-      .skill-img{
+
+      .skill-img {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
         height: 120px;
         width: 120px;
         z-index: 30;
@@ -121,23 +136,27 @@
         overflow: hidden;
         border: 4px dotted gray;
         transition: all 0.5s ease;
-        @include mobile{
+
+        @include mobile {
           height: 70px;
           width: 70px;
         }
-        img{
+
+        img {
           height: 100%;
           width: 100%;
           object-fit: cover;
         }
       }
-      .skill-img:hover{
+
+      .skill-img:hover {
         height: 125px;
         width: 125px;
         filter: drop-shadow(0 0 20px #646cffaa);
       }
     }
-    .bt-right{
+
+    .bt-right {
       border: 2px solid gray;
       background-color: #0E0E26;
       border-radius: 20px;
@@ -147,11 +166,12 @@
       position: relative;
       z-index: 1;
       overflow: hidden;
-      @include mobile{
+
+      @include mobile {
         height: 50%;
-      width: 100%;
-      margin-left: unset;
-      margin-top: 5px;
+        width: 100%;
+        margin-left: unset;
+        margin-top: 5px;
       }
     }
   }

@@ -5,9 +5,14 @@ import "./portfolio.scss";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { useSelector } from "react-redux";
+import { MdOutlineModeEdit } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Single = ({ item, handleMsg }) => {
   const { skillImages } = useSelector((state) => state.skills);
+  const { token } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -62,7 +67,14 @@ const Single = ({ item, handleMsg }) => {
             </a>
           </motion.div>
           <motion.div className="textContainer" style={{ y }}>
-            <h2>{item.title}</h2>
+            <div className="project-title">
+              <h2>{item.title}</h2>{" "}
+              {token && (
+                <button onClick={() => navigate(`/admin/projects/${item._id}`)}>
+                  <MdOutlineModeEdit />
+                </button>
+              )}
+            </div>
             <p>{item.description}</p>
             <div className="links">
               <a
