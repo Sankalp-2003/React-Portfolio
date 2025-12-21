@@ -42,9 +42,12 @@ function Contact({ handleMsg }) {
     setLoader(true);
 
     emailjs
-      .sendForm("service_5rid4m9", "template_4e07wmf", formRef.current, {
-        publicKey: "AGJR0RREc5AE3WxgW",
-      })
+      .sendForm(
+        import.meta.env.VITE_EMAIL_SERVICE_ID,
+        import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAIL_PUBLIC_KEY
+      )
       .then(
         () => {
           setSuccess(true);
