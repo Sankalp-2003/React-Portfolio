@@ -85,14 +85,16 @@ const Single = ({ item, handleMsg }) => {
               >
                 <button>See Demo</button>
               </a>
-              <a
-                onMouseEnter={() => handleMsg(true, "See Source Code")}
-                onMouseLeave={() => handleMsg(false, "")}
-                href={item.git}
-                className="git"
-              >
-                <FaGithub />
-              </a>
+              {item.git === "no-link" ? null : (
+                <a
+                  onMouseEnter={() => handleMsg(true, "See Source Code")}
+                  onMouseLeave={() => handleMsg(false, "")}
+                  href={item.git}
+                  className="git"
+                >
+                  <FaGithub />
+                </a>
+              )}
             </div>
             <div className="icons">
               {item.techStack.map((item) => {
